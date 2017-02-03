@@ -15,8 +15,22 @@ namespace WebsiteSubsitesContentDownloader
       Console.Write("Please enter the website path: ");
       string path = Console.ReadLine();
 
+      // Checking URL validity
 
-      Console.ReadKey();
+      if (!Uri.IsWellFormedUriString(path, UriKind.RelativeOrAbsolute))
+      { Console.WriteLine("Wrong URL path!!!");
+      }
+
+      else
+      {   // Creating strings for operations
+        string all = string.Empty;
+        string htmlCode = string.Empty;
+
+
+
+
+
+        Console.ReadKey();
     }
   }
 }
