@@ -14,7 +14,7 @@ namespace ConsoleApplicationTest
     {
       string result = string.Empty;
       // Welcome message
-      Console.WriteLine("____Welcome Website Images Downloader____\n");
+      Console.WriteLine("____Welcome Website content Downloader____\n");
       Console.Write("Please enter the website path: ");
       string path = Console.ReadLine();
 
@@ -35,8 +35,8 @@ namespace ConsoleApplicationTest
           result += htmlCode;
           all = showMatch(htmlCode, @"((http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?)");
           Console.WriteLine("-------------");
-          Console.WriteLine($"\nThere are the following URLs in {path}: \n");
-                    Console.WriteLine("Scanning and downloading code");
+          Console.WriteLine($"\nThere are the following URLs in {path}: ");
+                    Console.WriteLine("(Scanning and Ddownloading code) \n");
           string[] urls = all.Split(new Char[] { '\n' });
                     string text = string.Empty;                  
                     urls[4] = "http://www.freenet.am/";
@@ -44,7 +44,7 @@ namespace ConsoleApplicationTest
                     for (int i = 0; i < urls.Length-1; i++)
                     {
                         Console.WriteLine(urls[i]);
-                        result += urls[i] + "\n"+ client.DownloadString(urls[i]); }
+                        result += "\n\n" + urls[i] + "\n" + client.DownloadString(urls[i]); }
 
 
                 }
