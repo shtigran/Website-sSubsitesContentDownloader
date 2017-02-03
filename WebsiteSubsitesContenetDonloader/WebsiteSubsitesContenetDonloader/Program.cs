@@ -28,25 +28,26 @@ namespace ConsoleApplicationTest
       {   // Creating strings for operations
         string all = string.Empty;
         string htmlCode = string.Empty;
+        string text = string.Empty;
 
         using (WebClient client = new WebClient()) // WebClient class inherits IDisposable
         {
           htmlCode = client.DownloadString(path);
           result += htmlCode;
           all = showMatch(htmlCode, @"((http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?)");
-          Console.WriteLine("_-------------");
-          string[] urls = all.Split(new Char[] { '\n' });
+          Console.WriteLine("-------------");
+          Console.WriteLine($"\nThere are the following URLs in {path}: \n");
 
-          foreach (string str in urls)
-          {
-            htmlCode = client.DownloadString(str);
-            result += str+ ":\n" +htmlCode;
-          }
-        }
-      }
+          string[] urls = all.Split(new Char[] { '\n' });                  
+                    for (int i = 0; i < urls.Length; i++)
+                        text += urls[i] + Environment.NewLine; 
 
-      Console.WriteLine(result);
-      Console.ReadKey();
+
+                }
+                File.WriteAllText("C:\\Users\\Tigran\\Desktop\\text.txt", text);
+            }
+            
+            Console.ReadKey();
     }
 
     private static string showMatch(string text, string expr)
