@@ -28,7 +28,6 @@ namespace ConsoleApplicationTest
       {   // Creating strings for operations
         string all = string.Empty;
         string htmlCode = string.Empty;
-        string text = string.Empty;
 
         using (WebClient client = new WebClient()) // WebClient class inherits IDisposable
         {
@@ -37,16 +36,21 @@ namespace ConsoleApplicationTest
           all = showMatch(htmlCode, @"((http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?)");
           Console.WriteLine("-------------");
           Console.WriteLine($"\nThere are the following URLs in {path}: \n");
-
-          string[] urls = all.Split(new Char[] { '\n' });                  
-                    for (int i = 0; i < urls.Length; i++)
-                        text += urls[i] + Environment.NewLine; 
+                    Console.WriteLine("Scanning and downloading code");
+          string[] urls = all.Split(new Char[] { '\n' });
+                    string text = string.Empty;                  
+                    urls[4] = "http://www.freenet.am/";
+                   
+                    for (int i = 0; i < urls.Length-1; i++)
+                    {
+                        Console.WriteLine(urls[i]);
+                        result += urls[i] + "\n"+ client.DownloadString(urls[i]); }
 
 
                 }
-                File.WriteAllText("C:\\Users\\Tigran\\Desktop\\text.txt", text);
-            }
-            
+
+      }
+            File.WriteAllText("C:\\Users\\Tigran\\Desktop\\text.txt", result);
             Console.ReadKey();
     }
 
