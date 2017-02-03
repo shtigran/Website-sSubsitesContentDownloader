@@ -1,27 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
-namespace WebsiteSubsitesContentDownloader
+namespace ConsoleApplicationTest
 {
-  class Program
+  public static class Program
   {
     static void Main(string[] args)
     {
+      string result = string.Empty;
       // Welcome message
-      Console.WriteLine("____Welcome Website Content Downloader____\n");
+      Console.WriteLine("____Welcome Website Images Downloader____\n");
       Console.Write("Please enter the website path: ");
       string path = Console.ReadLine();
+
 
       // Checking URL validity
 
       if (!Uri.IsWellFormedUriString(path, UriKind.RelativeOrAbsolute))
-      { Console.WriteLine("Wrong URL path!!!");
-      }
+      { Console.WriteLine("Wrong URL path!!!"); }
 
       else
       {   // Creating strings for operations
@@ -31,21 +32,25 @@ namespace WebsiteSubsitesContentDownloader
         using (WebClient client = new WebClient()) // WebClient class inherits IDisposable
         {
           htmlCode = client.DownloadString(path);
-          Console.WriteLine(htmlCode);
-          all = showMatch(htmlCode, @"<(http)\b[^>]*>");
-          Console.WriteLine("-------------");
-          Console.WriteLine("\nThere are the following URLs: ");
-          Console.WriteLine(all);
-          string[] split = all.Split(new Char[] { '"', '?' });
-          Console.WriteLine("-------------");
-          string dir = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-          WebClient client1;
+          result += htmlCode;
+          all = showMatch(htmlCode, @"((http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?)");
+          Console.WriteLine("_-------------");
+          string[] urls = all.Split(new Char[] { '\n' });
+
+          foreach (string str in urls)
+          {
+
+
+
+          }
+
+
 
         }
-
-        Console.ReadKey();
       }
+      Console.ReadKey();
     }
+
     private static string showMatch(string text, string expr)
     {
       MatchCollection mc = Regex.Matches(text, expr);
@@ -57,3 +62,4 @@ namespace WebsiteSubsitesContentDownloader
       return result;
     }
   }
+}
