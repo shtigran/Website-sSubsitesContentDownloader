@@ -39,15 +39,13 @@ namespace ConsoleApplicationTest
 
           foreach (string str in urls)
           {
-
-
-
+            htmlCode = client.DownloadString(str);
+            result += str+ ":\n" +htmlCode;
           }
-
-
-
         }
       }
+
+      Console.WriteLine(result);
       Console.ReadKey();
     }
 
