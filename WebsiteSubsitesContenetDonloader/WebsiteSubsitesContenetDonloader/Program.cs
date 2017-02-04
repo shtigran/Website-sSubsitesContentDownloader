@@ -12,7 +12,8 @@ namespace ConsoleApplicationTest
   {
     static void Main(string[] args)
     {
-      string result = string.Empty;
+
+            string result = string.Empty;
       // Welcome message
       Console.WriteLine("____Welcome Website Content Downloader____\n");
             Console.WriteLine("The program download input Website and it's Subsites all content");
@@ -35,10 +36,12 @@ namespace ConsoleApplicationTest
           htmlCode = client.DownloadString(path);
           result += htmlCode;
           all = showMatch(htmlCode, @"((http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?)");
-          Console.WriteLine("-------------");
+          Console.WriteLine("------------------------");
           Console.WriteLine($"\nThere are the following URLs in {path}: ");
                     Console.WriteLine("(Scanning and Downloading code) \n");
-          string[] urls = all.Split(new Char[] { '\n' });
+                    Console.ForegroundColor = ConsoleColor.Blue;
+
+                    string[] urls = all.Split(new Char[] { '\n' });
                     string text = string.Empty;                  
                     urls[4] = "http://www.freenet.am/";
                    
@@ -51,6 +54,7 @@ namespace ConsoleApplicationTest
             }
            
             File.WriteAllText($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\text.txt", result);
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nThe content of all Websites is Downloaded on Your Desktop in text.txt!!! ");
             Console.ReadKey();
     }
