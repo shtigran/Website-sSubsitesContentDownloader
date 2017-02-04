@@ -47,7 +47,7 @@ namespace ConsoleApplicationTest
                    
                     for (int i = 0; i < urls.Length-1; i++)
                     {
-                        Console.WriteLine(urls[i]);
+                        Console.WriteLine($"URL {i+1}: {urls[i]}\n");
                         result += $"\n\n{urls[i]} \n {client.DownloadString(urls[i])} "; }
                 }
             }
