@@ -46,14 +46,12 @@ namespace ConsoleApplicationTest
                     {
                         Console.WriteLine(urls[i]);
                         result += $"\n\n{urls[i]} \n {client.DownloadString(urls[i])} "; }
-
-
                 }
 
             }
            
             File.WriteAllText($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\text.txt", result);
-            Console.WriteLine("The content of ");
+            Console.WriteLine("\nThe content of all Websites is Downloaded on Your Desktop in text.txt!!! ");
             Console.ReadKey();
     }
        
