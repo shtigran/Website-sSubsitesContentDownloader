@@ -15,6 +15,7 @@ namespace ConsoleApplicationTest
       string result = string.Empty;
       // Welcome message
       Console.WriteLine("____Welcome Website Content Downloader____\n");
+            Console.WriteLine("The program download input Website and it's Subsites all content");
       Console.Write("Please enter the website path: ");
       string path = Console.ReadLine();
 
@@ -49,11 +50,13 @@ namespace ConsoleApplicationTest
 
                 }
 
-      }
-            File.WriteAllText("C:\\Users\\Tigran\\Desktop\\text.txt", result);
+            }
+           
+            File.WriteAllText($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\text.txt", result);
+            Console.WriteLine("The content of ");
             Console.ReadKey();
     }
-
+       
     private static string showMatch(string text, string expr)
     {
       MatchCollection mc = Regex.Matches(text, expr);
