@@ -10,6 +10,8 @@
 ### Purpose
 This program allow You find the inputing website subsites list and then download their all content (HTML code). You must input valid URL of website and program do all for You.
 
+----
+
 ### The Program class implementation
 ```c
         string result = string.Empty;
@@ -59,4 +61,8 @@ This program allow You find the inputing website subsites list and then download
             Console.WriteLine("\nThe content of all Websites is Downloaded on Your Desktop in text.txt!!! ");
 ```
 ### Description of Program class
-You must the valid URL. The program verify the URL. The program recieve teh html code of that URL and find out all URLs in that. The finding performed through Regular Expression. After that the program show all suburls and download their HTML codes. Then all HTML codes of content the program save on Desktop with text.txt name.
+You must the valid URL. The program verify the URL. The program recieve teh html code of that URL and find out all URLs in that. The finding performed through Regular Expression in showMatch() method. After that the program show all suburls and download their HTML codes. Then all HTML codes of content the program save on Desktop with text.txt name.
+
+----
+
+### The showMatch() method implementation
