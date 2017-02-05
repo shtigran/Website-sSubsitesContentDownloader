@@ -8,3 +8,5 @@
 ----
 
 ### Purpose
+This program allow You find the inputing website subsites list and then download their all content (HTML code). You must input valid URL of website and program do all for You.
+
