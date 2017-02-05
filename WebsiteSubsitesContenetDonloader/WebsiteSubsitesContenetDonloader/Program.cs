@@ -14,7 +14,8 @@ namespace ConsoleApplicationTest
     {
 
             string result = string.Empty;
-      // Welcome message
+            // Welcome message
+            Console.WriteLine("    __________________________________    ");
       Console.WriteLine("____Welcome Website Content Downloader____\n");
             Console.WriteLine("The program download input Website and it's Subsites all content");
       Console.Write("Please enter the website path: ");
@@ -37,10 +38,11 @@ namespace ConsoleApplicationTest
           result += htmlCode;
           all = showMatch(htmlCode, @"((http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?)");
           Console.WriteLine("------------------------");
-                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"\nThere are the following URLs in {path}: ");
                     Console.WriteLine("(Scanning and Downloading code) \n");
-                    
+                    Console.ForegroundColor = ConsoleColor.Blue;
+
 
                     string[] urls = all.Split(new Char[] { '\n' });
                     string text = string.Empty;                  
