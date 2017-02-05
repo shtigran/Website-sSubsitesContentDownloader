@@ -78,3 +78,5 @@ private static string showMatch(string text, string expr)
       return result;
     }
 ```
+### The showMatch() methodDescription
+Yhe method takes two arguments. Fisrts argument is the text and the second is the Regex expression. And with  regex method find all matches in text and return them. 
