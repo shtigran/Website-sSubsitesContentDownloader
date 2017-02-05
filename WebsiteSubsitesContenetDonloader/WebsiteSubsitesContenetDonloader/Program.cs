@@ -37,9 +37,10 @@ namespace ConsoleApplicationTest
           result += htmlCode;
           all = showMatch(htmlCode, @"((http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?)");
           Console.WriteLine("------------------------");
-          Console.WriteLine($"\nThere are the following URLs in {path}: ");
-                    Console.WriteLine("(Scanning and Downloading code) \n");
                     Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine($"\nThere are the following URLs in {path}: ");
+                    Console.WriteLine("(Scanning and Downloading code) \n");
+                    
 
                     string[] urls = all.Split(new Char[] { '\n' });
                     string text = string.Empty;                  
