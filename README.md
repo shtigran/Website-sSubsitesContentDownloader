@@ -66,3 +66,15 @@ You must the valid URL. The program verify the URL. The program recieve teh html
 ----
 
 ### The showMatch() method implementation
+```C#
+private static string showMatch(string text, string expr)
+    {
+      MatchCollection mc = Regex.Matches(text, expr);
+      string result = "";
+      foreach (Match m in mc)
+      {
+        result += m.ToString() + "\n";
+      }
+      return result;
+    }
+```
