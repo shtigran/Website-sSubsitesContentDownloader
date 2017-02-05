@@ -57,5 +57,4 @@ This program allow You find the inputing website subsites list and then download
             File.WriteAllText($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\text.txt", result);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nThe content of all Websites is Downloaded on Your Desktop in text.txt!!! ");
-
 ```
