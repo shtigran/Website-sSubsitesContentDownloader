@@ -71,7 +71,7 @@ You must the valid URL. The program verify the URL. The program recieve teh html
 ### The showMatch() method implementation
 ```C#
 private static string showMatch(string text, string expr)
-    {
+{
       MatchCollection mc = Regex.Matches(text, expr);
       string result = "";
       foreach (Match m in mc)
@@ -79,7 +79,7 @@ private static string showMatch(string text, string expr)
         result += m.ToString() + "\n";
       }
       return result;
-    }
+}
 ```
 ### The showMatch() methodDescription
 Yhe method takes two arguments. Fisrts argument is the text and the second is the Regex expression. And with  regex method find all matches in text and return them. 
