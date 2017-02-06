@@ -14,9 +14,11 @@ This program allow You find the inputing website subsites list and then download
 
 ### The Program class implementation
 ```c
-        string result = string.Empty;
-            // Welcome message
-            Console.WriteLine("    __________________________________    ");
+class Program
+{
+      string result = string.Empty;
+    // Welcome message
+      Console.WriteLine("    __________________________________    ");
       Console.WriteLine("____Welcome Website Content Downloader____\n");
             Console.WriteLine("The program download input Website and it's Subsites all content");
       Console.Write("Please enter the website path: ");
@@ -59,6 +61,7 @@ This program allow You find the inputing website subsites list and then download
             File.WriteAllText($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\\text.txt", result);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nThe content of all Websites is Downloaded on Your Desktop in text.txt!!! ");
+            }
 ```
 ### Description of Program class
 You must the valid URL. The program verify the URL. The program recieve teh html code of that URL and find out all URLs in that. The finding performed through Regular Expression in showMatch() method. After that the program show all suburls and download their HTML codes. Then all HTML codes of content the program save on Desktop with text.txt name.
